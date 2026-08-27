@@ -156,12 +156,14 @@ button:not(:disabled), a[href] { cursor: pointer; }
 .section-heading p { max-width: 535px; margin: 17px 0 0; color: var(--muted-ink); font-size: 15px; line-height: 1.65; }
 .project-grid { display: grid; grid-template-columns: 1fr; gap: 52px; }
 .project-card { position: relative; background: linear-gradient(135deg, color-mix(in srgb, var(--paper-bright) 94%, #eadfca) 0%, var(--paper-bright) 52%); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform 320ms cubic-bezier(.23,1,.32,1), box-shadow 320ms cubic-bezier(.23,1,.32,1), border-color 220ms ease; }
+.project-card__live-link { position: absolute; inset: 0; z-index: 1; }
+.project-card__live-link:focus-visible { outline: 3px solid var(--blue); outline-offset: -6px; }
 .project-card::before { content: "MGJ / PROJECT RECORD"; position: absolute; right: 17px; bottom: 14px; z-index: 1; color: color-mix(in srgb, var(--blue) 48%, transparent); font-family: "Space Mono", monospace; font-size: 7px; font-weight: 700; letter-spacing: .1em; pointer-events: none; }
 .project-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.17fr .83fr; }
-.project-card__visual { min-height: 242px; position: relative; overflow: hidden; background: #1a1a1a; }
+.project-card__visual { min-height: 242px; position: relative; z-index: 2; overflow: hidden; background: #1a1a1a; pointer-events: none; }
 .project-card--featured .project-card__visual { min-height: 382px; }
 .project-card__visual img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform 620ms cubic-bezier(.23,1,.32,1); }
-.project-card__body { position: relative; padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.project-card__body { position: relative; z-index: 2; padding: 24px; display: flex; flex-direction: column; flex: 1; pointer-events: none; }
 .project-card--featured .project-card__body { padding: clamp(27px, 4vw, 51px); }
 .project-card__topline { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 8.5px; letter-spacing: .035em; text-transform: uppercase; }
 .project-card__status { color: var(--muted-ink); font-weight: 700; }
@@ -180,7 +182,7 @@ button:not(:disabled), a[href] { cursor: pointer; }
 .project-card__record-note span { color: var(--blue); font-weight: 700; }
 .project-card__record-note strong { font-weight: 400; }
 .project-card__bottom { margin-top: auto; padding: 25px 0 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
-.project-card__actions { display: flex; align-items: center; gap: 14px; }
+.project-card__actions { position: relative; z-index: 3; display: flex; align-items: center; gap: 14px; pointer-events: auto; }
 .project-tags, .timeline__chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .project-tags span, .timeline__chips span { border: 1px solid color-mix(in srgb, var(--line) 78%, transparent); color: color-mix(in srgb, var(--muted-ink) 78%, transparent); padding: 4px 6px; font-family: "Space Mono", monospace; font-size: 8px; text-transform: uppercase; }
 .case-study-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 0 0 4px; border: 0; border-bottom: 1px solid var(--blue); background: transparent; color: var(--ink); cursor: pointer; font-family: "Space Mono", monospace; font-size: 9px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; transition: color 180ms ease, transform 180ms ease; }

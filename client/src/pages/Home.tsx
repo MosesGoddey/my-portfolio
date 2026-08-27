@@ -239,6 +239,9 @@ const technologyStack = [
 function ProjectCard({ project, featured = false, supporting = false, onOpenCaseStudy }: { project: Project; featured?: boolean; supporting?: boolean; onOpenCaseStudy?: () => void }) {
   return (
     <article data-reveal className={`project-card ${featured ? "project-card--featured" : ""} ${supporting ? "project-card--supporting" : ""} ${!project.live ? "project-card--record" : ""}`}>
+      {project.live && project.href && (
+        <a href={project.href} target="_blank" rel="noreferrer" className="project-card__live-link" aria-label={`Open ${project.name} in a new tab`} />
+      )}
       <div className="project-card__visual">
         <img src={project.image} alt={project.imageAlt} />
       </div>

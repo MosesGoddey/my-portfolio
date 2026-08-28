@@ -646,7 +646,6 @@ export default function Home() {
 
       <footer className="site-footer section-shell">
         <span>© 2026 Moses Goddey Joseph</span>
-        <span>Built as a product record</span>
         <a href="#top">Back to top <ArrowUpRight size={14} /></a>
       </footer>
     </div>
